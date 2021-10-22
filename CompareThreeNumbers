@@ -1,0 +1,74 @@
+//세가지 수를 비교하는 메소드 만들기순서 1번 객체 클래스를 
+
+public class TestSample {
+
+	
+	public void num2comp(int num1 , int num2) {
+		int max = num1, min = num1;
+		if( num1 > num2) min = num2;
+		else max = num2;
+			
+	
+		System.out.println("큰수 : " + max);
+		System.out.println("작은수 : " + min);
+	}
+	
+	public void num3comp(int num1 , int num2 , int num3) {
+		int rs1 = num1, rs2 = num1, rs3 = num1;
+		if( num1 > num2) {
+			if(num1 > num3) {//num1이 가장큼
+				if(num2 >num3) {
+					rs2 = num2;
+					rs3 = num3;
+				}else {
+				rs2 = num3;
+				rs3 = num2;
+				}
+			} else { //num3가 num1보다 크거나 같다.
+				
+			rs1= num3;
+			rs3= num2;
+			
+			}		
+		}else { // num2가 num1보다 크거나 같다.
+			if(num2 > num3) {
+				rs1 = num2;
+				if(num1 > num3) {
+					rs3 = num3;
+				}
+			
+		}else {
+			rs1 = num3;
+			rs2 = num2;
+		}
+			
+		}
+			
+		
+		System.out.println("1큰수 : " + rs1);
+		System.out.println("2큰수 : " + rs2);
+		System.out.println("2큰수 : " + rs3);
+
+	}
+
+			
+		
+	
+}
+
+//2번 작성한 클래스를 호출하고 메소드를 불러 메인메소드에 작성하여 비교해본다.
+public class IfExamTest {
+
+	public static void main(String[] args) {
+		TestSample obj = new TestSample();
+obj.num2comp(100,200);
+System.out.println("=============");
+obj.num2comp(500, 200);
+System.out.println("======3 숫자 대소 결과======");
+obj.num3comp(100, 200, 300);
+System.out.println("======3 숫자 대소 결과======");
+obj.num3comp(300, 100, 200);
+
+	}
+
+}
