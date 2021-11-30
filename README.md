@@ -9,6 +9,7 @@
 </head>
 <body>
 이내용이 보일까요
+	<%System.out.println(이내용이보이는지궁금합니다);%>
 </body>
 </html>
 <!--
