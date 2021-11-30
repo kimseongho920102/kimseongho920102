@@ -1,0 +1,129 @@
+package test;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
+	public class Test {
+
+
+public static void main(String[] args) {
+
+
+	List<Integer> Lt=new ArrayList<Integer>();	
+
+
+for(int k=0 ; k<5 ;k++)
+
+{
+for(int i=0; i<7; i++){
+
+
+Lt.add((int)(Math.random()*45)+1);
+
+
+System.out.println("추출된 값:"+Lt.get(i));
+
+for(int j = 0; j < i ; j++) { //검사구간
+
+if( Lt.get(i) == Lt.get(j) ) {
+
+System.out.println(Lt.get(i)+"는지워졌습니다");
+
+Lt.remove(i);
+
+i= i -1;
+
+
+}
+
+}System.out.println("안에넣은값:"+Lt.get(i)+" "); System.out.println("====================");
+
+
+
+}
+
+
+System.out.println("==========="+(k+1)+"번째 로또 번호 =============");
+
+for(int i=0; i<7; i++){
+
+
+if(i!=6) {System.out.print(Lt.get(i)+" ");}
+
+else if(i ==6 ) {System.out.print("보너스번호 : " + Lt.get(i) +"\n");
+
+}
+
+
+}
+
+Lt.clear();
+System.out.println("========================================");
+}
+
+}
+public boolean aaaaa(List<Integer> lt) {	
+	 
+		
+	
+	return (if(Lt.get(i) == Lt.get(j)) ;
+}
+	
+}
+	
+  //리팩토링 하다가 완료를 못했음..
+  아래는 추가 받은 리팩토링
+  package Lotto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LottoExam {
+
+	public static void main(String[] args) {
+		print(5);
+	}
+	
+	static List<Integer> ro() {
+		List<Integer> lt = new ArrayList<Integer>();
+		int i=0;
+		
+		while(i != 7) {
+			int num = (int) ((Math.random() * 45) + 1);			
+				
+			if(check(lt, num) == true) {
+				lt.add(num);
+				System.out.println("안에넣은값:" + lt.get(i) + " ");
+				i++;
+			}										
+		}
+		return lt;
+	}
+	
+	static boolean check(List<Integer> lt, int num) {
+		int i = lt.size();
+		for (int j = 0; j < i; j++) { // 검사구간
+			if (lt.get(j) == num) {
+				System.out.println("중복되는 값이 있습니다(" + num + ")");
+				return false;
+			}
+		}			
+		return true;
+	}
+	static void print(int games) {		
+		for (int k = 0; k < games; k++){
+			System.out.println("===========" + (k + 1) + "번째 로또 번호 =============");
+			List<Integer> lt = ro();			
+			for (int i = 0; i < 6; i++) {
+					System.out.print(lt.get(i) + " ");									
+				}
+			System.out.print("보너스번호 : " + lt.get(6) + "\n");
+			}
+			
+		}
+
+}
+//리팩토링..
+	
